@@ -33,8 +33,8 @@ export const createFile = async (req: Request | any, res: Response) => {
 
 export const getFile = async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
-    const file = await GridFile.findOne({});
+    const { id } = req.query;
+    const file = await GridFile.findOne({_id:id});
 
     if (!file) {
       res.status(404).send("File not found");
